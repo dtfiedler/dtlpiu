@@ -6,3 +6,7 @@ DTLP project for IU final assignment
 - 5/3 : Thomas to reach out to IU professors about getting project criteria early
 - 5/4 : Dylan to share predix URLS for hostin (I'll add to this read me in just a bit and add you guys to the app/space in predix)
 - 5/5 : Team to determine project focus and layout plan!
+
+# Predix Info:
+- Base URL: https://iu-final-project.run.aws-usw02-pr.ice.predix.io
+
