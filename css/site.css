@@ -113,6 +113,12 @@ a {
 	font-weight: bold;
 }
 
+.links {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
 #contactUsForm  label
 {
     width: 220px;
