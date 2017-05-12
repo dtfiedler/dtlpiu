@@ -19,10 +19,10 @@
         <div class="ui-content" role="main">
 
 			<form action="form.php" method="post">
-				<input type="search"></input>
-				<button type="submit">Search</button>
+				<input id="zip_input" type="search"></input>
+				<button onclick="getGeoCoding()" type="submit">Search</button>
 			</form>
-			
+
 					<div id="map" style="height:300px; width:auto;"></div>
         </div>
 				<div class="links">
