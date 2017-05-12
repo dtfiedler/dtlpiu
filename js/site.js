@@ -52,6 +52,17 @@ var centerMap = function (thislat , thislng) {
 		zoom: 8
 	});
 }
+
+var getGeoCoding = function (zip) {
+	$.ajax({
+           type: 'GET',
+           contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+           url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k'
+          //  url: 'http://localhost:5000/getDataPostgres'
+				}).done(function(data){
+					console.log("data is --> ", data);
+				});
+}
 /*
   site.js
 */
