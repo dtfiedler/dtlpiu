@@ -1,0 +1,86 @@
+body {
+    background-image: url(http://image.digitalinsightresearch.in/uploads/imagelibrary/Archive/nri/power/sensors.jpg);
+     -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+
+section {
+    width:80%;
+    margin: auto;
+}
+
+p {
+    margin-top:10%;
+    text-align: center;
+    color: white;
+}
+
+
+.header {
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    color:white;
+}
+
+input {
+    min-width: 200px;
+}
+
+h1 {
+    color: white;
+    font-size: 75px;
+    margin: auto;
+}
+
+footer {
+    height: 100px;
+    color: white;
+    vertical-align: text-top;
+}
+
+form {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 30 0 30 0;
+    color: white;
+}
+
+input {
+    width: 50%;
+}
+
+form {
+    text-align: center;
+}
+
+.contact {
+   background-color: rgba(0,0,0,0.8);
+    min-width: 500px;
+    width: 500px;
+    margin: auto;
+}
+
+.about {
+    background-color: rgba(0,0,0,0.8);
+    min-width: 500px;
+    margin: auto;
+}
+
+p {
+    padding: 30;
+}
+
+@font-face {
+    font-family: ge-inspira;
+    src: url(sansation_light.woff);
+}

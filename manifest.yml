@@ -1,0 +1,5 @@
+applications:
+- name: iu-app
+  memory: 128M
+  buildpack: staticfile_buildpack
+  

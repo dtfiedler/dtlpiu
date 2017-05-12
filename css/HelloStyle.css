@@ -1,0 +1,36 @@
+h1 {
+	color:Tomato;
+	margin-left:30px;
+	font-size: 300%;
+}
+div {
+	color:#6495ed;
+	margin-left:30px;
+	font-size: 30px;
+	font-family: verdana
+}
+
+div > label{
+	color:Tomato;
+	font-size: 14px;
+	margin-left:0px;
+	font-family: verdana
+}
+
+label
+{
+	color:green;
+	font-size: 20px;
+	margin-left:30px;
+}
+
+#p3
+{
+	color: Green
+}
+
+.chocolate
+{
+	color:chocolate
+}
+
