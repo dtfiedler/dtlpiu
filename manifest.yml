@@ -1,12 +1,5 @@
-<<<<<<< HEAD
 applications:
-- name: iu-app
+- name: iu-final-project 
   memory: 128M
   buildpack: staticfile_buildpack
-=======
-applications:
-- name: iu-final-project
-  memory: 128M
-  buildpack: staticfile_buildpack
->>>>>>> c838b87676a96ce94d35944569c89611d7300bb5
   
