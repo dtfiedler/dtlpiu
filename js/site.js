@@ -71,6 +71,35 @@ var getGeoCoding = function () {
 				});
 }
 
+var search = function () {
+	if (isValid()){
+		getGeoCoding();
+		$("#zip_input").removeClass("error");
+		$("#error").remove();
+	}
+	else{
+		console.log('error');
+		$("#zip_input").addClass("error");
+		$("#btn").before("<div id='error'>Please enter a valid 5 digit zip code</div>");
+	}
+}
+
+var isValid = function () {
+	var zip = document.getElementById('zip_input').value;
+	if (!isNaN(zip)){
+		if (zip.length === 5){
+			return true;
+		}
+		else {
+			return false
+		}
+
+}else {
+	return false;
+}
+
+}
+
 var getWeather = function () {
     var zip = document.getElementById('zip_input').value;
     console.log("zip is --> " + zip);

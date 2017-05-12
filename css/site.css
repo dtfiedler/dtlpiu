@@ -5,6 +5,10 @@ html, body {
   margin: 0;
 }
 
+.error{
+    border: 2px solid red !important;
+  }
+
 body {
   font-family: verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -205,6 +209,7 @@ a {
 }
 
 
+
 @media screen and (max-width: 320px) {
   label {
     width: auto;
@@ -218,6 +223,8 @@ a {
     margin: auto;
   }
 
+
+  
 }
 
 @media screen and (min-width: 540px){
