@@ -44,8 +44,7 @@ section {
 
 .ui-input-search {
   max-width: 500px;
-  margin: 50% auto auto auto;
-
+  margin: auto;
 }
 .ui-btn {
   max-width: 500px;
