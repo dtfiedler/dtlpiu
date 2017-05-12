@@ -52,6 +52,19 @@ var centerMap = function (thislat , thislng) {
 		zoom: 8
 	});
 }
+
+var getGeoCoding = function () {
+	var zip = document.getElementById('zip_input').value;
+	console.log("zip is --> " + zip);
+	$.ajax({
+           type: 'GET',
+           contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+           url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k'
+				}).done(function(data){
+					// Center the map at the requested zip code.
+					centerMap(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
+				});
+}
 /*
   site.js
 */

@@ -17,6 +17,12 @@
             <h1>Home Page</h1>
         </div>
         <div class="ui-content" role="main">
+
+			<form action="form.php" method="post">
+				<input id="zip_input" type="search"></input>
+				<button onclick="getGeoCoding()" type="submit">Search</button>
+			</form>
+
 					<div id="map" style="height:300px; width:auto;"></div>
         </div>
 				<div  class="footer" data-role="footer" >
