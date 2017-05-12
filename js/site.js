@@ -44,6 +44,14 @@ $(document).ready(function() {
 		}
 	});
 });
+
+var centerMap = function (thislat , thislng) {
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: {lat: thislat, lng: thislng},
+		scrollwheel: false,
+		zoom: 8
+	});
+}
 /*
   site.js
 */
