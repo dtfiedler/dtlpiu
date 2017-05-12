@@ -13,34 +13,37 @@
 	<body>
     <!-- This is the first page -->
     <section id="firstPage" data-role="page">
-        <div data-role="header">
+        <!-- <div data-role="header">
             <h1>Home Page</h1>
-        </div>
+						<a href="#secondPage" data-icon="contact">Contact Us</a>
+        </div> -->
+				<div data-role="header">
+					<h1>Home</h1>
+					<a id="contact" href="#secondPage" data-icon="mail" class="ui-btn-right">Contact</a>
+				</div>
         <div class="ui-content" role="main">
 
 			<form id = "search" action="#" onsubmit="return false;">
 				<input id="zip_input" type="search"></input>
-				<button onclick="getGeoCoding()" >Search</button>
+				<button styl3="display: inline" onclick="getGeoCoding(); getWeather();" >Search</button>
 			</form>
 
-				<div id="map" style="height:300px; width:auto;"></div>
+				<div id="map" ></div>
         </div>
+				<div style="height:50px;text-align:center;"><b><p style="color:white" id="weather_div"></p></b></div>
 				<div  class="footer" data-role="footer" >
-					<a href="#secondPage">Page Two</a>
-					<a href="#thirdPage">Page Three</a>
 				</div>
     </section>
 
     <!-- This is the second page -->
     <section id="secondPage" data-role="page">
 			<div data-role="header">
-					<h1>Page Two</h1>
+				<h1>Contact Us</h1>
+				<a id="contact" href="#firstPage" data-icon="search" class="ui-btn-right">Search Weather</a>
 			</div>
 			<div class="ui-content" role="main">
 			</div>
 			<div  class="footer" data-role="footer">
-				<a href="#firstPage" data-icon="home">Home</a>
-				<a href="#thirdPage">Page Three</a>
 			</div>
     </section>
 		<!-- This is the third page -->
@@ -51,8 +54,6 @@
 			<div class="ui-content" role="main">
 			</div>
 			<div  class="footer" data-role="footer">
-				<a href="#firstPage" data-icon="home">Home</a>
-				<a href="#secondPage">Page Two</a>
 			</div>
 			<script>
 				function initMap(){

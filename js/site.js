@@ -53,10 +53,6 @@ var centerMap = function (thislat , thislng) {
 	});
 }
 
-function initMap(){
-	console.log("map looks good");
-}
-
 var getGeoCoding = function () {
 	var zip = document.getElementById('zip_input').value;
 	console.log("zip is --> " + zip);
@@ -73,4 +69,27 @@ var getGeoCoding = function () {
 				.error(function(e){
 					console.log(e);
 				});
+}
+
+var getWeather = function () {
+    var zip = document.getElementById('zip_input').value;
+    console.log("zip is --> " + zip);
+    $.ajax({
+           type: 'GET',
+                                                                                crossOrigin: true,
+           contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+           url: "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + zip + "')&format=json&callback=callbackFunction"
+        }).done(function(data){
+                        // Center the map at the requested zip code.
+                        document.getElementById('weather_div').innerText = data.responseText;
+        })
+        .error(function(e){
+                        // For some reason AJAX considers the return an error, although in some cases we receive a valid JSON response.
+                        var newString = JSON.parse(e.responseText.split("callbackFunction(")[1].split(")")[0]);
+                        if (newString.query.results) {
+                                        document.getElementById('weather_div').innerText = "Date: " +  newString.query.results.channel.item.condition.date + " Weather: " + newString.query.results.channel.item.condition.text + " Temp: " + newString.query.results.channel.item.condition.temp;
+                        } else {
+                                        document.getElementById('weather_div').innerText = "Null Result: Yahoo API Returning no weather currently";
+                        }
+        });
 }
