@@ -1,5 +1,16 @@
 
 
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: verdana, Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: white;
+}
+
 .footer {
   position: absolute;
   right: 0;
@@ -17,18 +28,6 @@
   color: white;
 }
 
-body {
-  font-family: verdana, Arial, Helvetica, sans-serif;
-  font-size: 14px;
-   -webkit-background-size: fill;
-  -moz-background-size: fill;
-  -o-background-size: fill;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  color: white;
-}
-
 section {
   background-image: url("../background.jpg");
   -webkit-background-size: cover;
@@ -37,11 +36,29 @@ section {
  background-repeat: no-repeat;
  background-attachment: fixed;
  background-position: center;
+ height: 100%;
+ align-items: center
+
 }
 
-html, body {
-  padding: 0;
-  margin: 0;
+
+.ui-input-search {
+  max-width: 500px;
+  margin: 50% auto auto auto;
+
+}
+.ui-btn {
+  max-width: 500px;
+  margin: 10px auto;
+  display: none;
+}
+
+#map {
+  margin-top: 20px;
+}
+
+form > .ui-btn {
+  width: 100px;
 }
 
 .bordered-element {

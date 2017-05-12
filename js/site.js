@@ -53,9 +53,14 @@ var centerMap = function (thislat , thislng) {
 	});
 }
 
+function initMap(){
+	console.log("map looks good");
+}
+
 var getGeoCoding = function () {
 	var zip = document.getElementById('zip_input').value;
 	console.log("zip is --> " + zip);
+	$('.ui-input-search').css('margin-top',"10px");
 	$.ajax({
            type: 'GET',
 					 crossOrigin: true,
@@ -69,6 +74,3 @@ var getGeoCoding = function () {
 					console.log(e);
 				});
 }
-/*
-  site.js
-*/
