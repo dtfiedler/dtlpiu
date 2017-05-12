@@ -60,7 +60,7 @@ var getGeoCoding = function (zip) {
            url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k'
           //  url: 'http://localhost:5000/getDataPostgres'
 				}).done(function(data){
-					console.log("data is --> ", data);
+					centerMap(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
 				});
 }
 /*
