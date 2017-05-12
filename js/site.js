@@ -58,11 +58,15 @@ var getGeoCoding = function () {
 	console.log("zip is --> " + zip);
 	$.ajax({
            type: 'GET',
+					 crossOrigin: true,
            contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
            url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k'
 				}).done(function(data){
 					// Center the map at the requested zip code.
 					centerMap(data.results[0].geometry.location.lat, data.results[0].geometry.location.lng);
+				})
+				.error(function(e){
+					console.log(e);
 				});
 }
 /*
