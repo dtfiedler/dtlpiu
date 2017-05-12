@@ -17,6 +17,7 @@
             <h1>Home Page</h1>
         </div>
         <div class="ui-content" role="main">
+					<div id="map" style="height:300px; width:auto;"></div>
         </div>
 				<p><a href="#secondPage">Page Two</a></p>
 				<p><a href="#thirdPage">Page Three</a></p>
@@ -50,6 +51,19 @@
 			<div data-role="footer">
 					<h2>&copy;Footer here</h2>
 			</div>
+			<script>
+	      function initMap() {
+	        // Create a map object and specify the DOM element for display.
+	        var map = new google.maps.Map(document.getElementById('map'), {
+	          center: {lat: -34.397, lng: 150.644},
+	          scrollwheel: false,
+	          zoom: 8
+	        });
+	      }
+
+	    </script>
+	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k&callback=initMap"
+	    async defer></script>
 			<!-- <div data-role="header">
 				<h1>Contact</h1>
 			</div>
