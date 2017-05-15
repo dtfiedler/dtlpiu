@@ -1,5 +1,5 @@
 applications:
-- name: iu-final-project 
+- name: iu-final 
   memory: 128M
   buildpack: staticfile_buildpack
   
