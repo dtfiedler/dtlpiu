@@ -7,45 +7,44 @@ $(document).ready(function() {
 
 	"use strict";
 
-	$( "#bestContactMethod" ).change(function() {
-	  var selected = $('#bestContactMethod').val();
-
-		switch (selected){
-			case 'cellPhone':
-				$('#cellPhoneDiv').show();
-				$('#workPhoneDiv').hide();
-				$('#emailDiv').hide();
-				$('#imDiv').hide();
-				break;
-			case 'workPhone':
-				$('#cellPhoneDiv').hide();
-				$('#workPhoneDiv').show();
-				$('#emailDiv').hide();
-				$('#imDiv').hide();
-				break;
-			case 'email':
-				$('#cellPhoneDiv').hide();
-				$('#workPhoneDiv').hide();
-				$('#emailDiv').show();
-				$('#imDiv').hide();
-				break;
-			case 'im':
-				$('#cellPhoneDiv').hide();
-				$('#workPhoneDiv').hide();
-				$('#emailDiv').hide();
-				$('#imDiv').show();
-				break;
-			default:
-				$('#cellPhoneDiv').hide();
-				$('#workPhoneDiv').hide();
-				$('#emailDiv').hide();
-				$('#imDiv').hide();
-				break;
-		}
-	});
+	getRecentSearches();
 });
 
+var getRecentSearches = function (){
+
+	//get recent searches from local session storage per browsing session
+			if(sessionStorage.recentSearches){
+					$($('#recentSearches')).empty();
+					console.log(sessionStorage.recentSearches);
+					var recents = JSON.parse(sessionStorage.recentSearches);
+					console.log(recents);
+					var list = $("#recentSearches").append('<ul></ul>').find('ul');
+					var count = 0;
+					//get 5 most recent searches if more than 5
+					if (recents.length > 5) {
+						count = 5;
+					} else {
+						count = recents.length;
+					}
+					for (var i = recents.length - 1; i > recents.length - count - 1 ; i--){
+						if (recents[i] != null){
+    					list.append('<li><button class="recents" onclick="recentClicked(this)"><h2>'+ recents[i] +'</h2></button></li>');
+						}
+					}
+			} else {
+				console.log("no recent searches");
+			}
+}
+
+var recentClicked = function(d){
+	console.log("recent search clicked: ", d.innerText);
+	$('#zip_input').val(d.innerText);
+	search();
+}
+
+
 var centerMap = function (thislat , thislng) {
+	$('#map').show();
 	var map = new google.maps.Map(document.getElementById('map'), {
 		center: {lat: thislat, lng: thislng},
 		scrollwheel: false,
@@ -77,11 +76,34 @@ var search = function () {
 		getGeoCoding();
 		$("#zip_input").removeClass("error");
 		$("#error").remove();
+		var searchValue = $('#zip_input').val();
+
+		//grab recent searches and add to it
+		if (sessionStorage.recentSearches){
+			var recents = JSON.parse(sessionStorage.recentSearches);
+			//previous searches found, update array if its not arleady in there
+			console.log("adding to recent searches ", searchValue);
+			recents.push(searchValue);
+			sessionStorage.recentSearches = JSON.stringify(recents);
+
+		} else {
+			//no previous recent searches, create array and store
+			var recents = Array();
+			recents.push(searchValue);
+			sessionStorage.recentSearches = JSON.stringify(recents);
+		}
+
+		//update html
+		getRecentSearches();
 	} else {
+
+		//show error
 		console.log('error');
+		console.log($('#zip_input'));
 		$("#zip_input").addClass("error");
 		$("#error").remove();
-		$("#btn").before("<div id='error'>Please enter a valid 5 digit zip code</div>");
+		$("#btn").before("<div id='error'><h2 style='color:red'>Please enter a valid 5 digit Zip Code.</h2></div>");
+		$('#map').hide();
 	}
 }
 
@@ -147,9 +169,13 @@ var validateContactForm = function (){
 					console.log('success');
 					$('#contactUsForm').hide();
 					$('#message').show();
+				} else {
+				  $("#contactError").html("<h2 style='color:red'>Please complete all fields.</h2>");
+					$("#contactError").show();
 				}
 		} else {
 			console.log("invalid email");
+			$("#contactError").html("<h2 style='color:red'>Please enter a valid email address.</h2>");
 			$("#contactError").show();
 			$('#email').addClass('error');
 		}

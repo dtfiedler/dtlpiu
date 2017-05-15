@@ -22,15 +22,20 @@
 				</div>
         <div class="ui-content" role="main">
 
-					<form id = "search" action="#" onsubmit="return false;">
-						<input id="zip_input" type="tel"></input>
+					<form id = "search" class="center" action="#" onsubmit="return false;">
+						<input class="center" id="zip_input" type="tel"></input>
 						<button id="btn" onclick="search()" >Search</button>
 					</form>
-					<!-- Map and weather show here -->
-					<div id="map" ></div>
 					<!-- Show weather details here -->
-					<div style="height:50px;text-align:center;"><b><p style="color:white" id="weather_div"></p></b></div>
+					<div style="text-align:center;"><b><p style="color:white" id="weather_div"></p></b></div>
+					<!-- Map and weather show here -->
+					<div id="map" style="display:none"></div>
         </div>
+				<div class="center">
+					<h2 style='color: white'>Recent Searches:</h2>
+					<div id="recentSearches">
+					</div>
+				</div>
 				<div  class="footer" data-role="footer" >
 				</div>
     </section>
@@ -53,7 +58,7 @@
 					<label for="Comments">Comments or Feedback:</label>
 					<input type="textarea" name="Comments" id="Comments" placeholder="Enter your comments here"/>
 					<br/>
-					<div id="contactError" style="display: none"><h2 style="color:red">Please enter a valid email</h2></div>
+					<div id="contactError"></div>
 					<button type="submit" id="submitButton" class="ui-shadow ui-btn">Submit</button>
 				</form>
 			</div>

@@ -11,6 +11,8 @@ body {
   color: white;
 }
 
+
+
 .footer {
   position: absolute;
   right: 0;
@@ -22,10 +24,39 @@ body {
   border: 0px;
 }
 
+.center {
+  text-align: center;
+  margin: auto;
+  width: 50%;
+}
+
+.recents {
+  border: 0px;
+  background-color: transparent;
+  color: white;
+}
+
 .ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
   background-color:transparent;
   border: 0px;
   color: white;
+}
+
+.error {
+    border: 2px solid red  !important;
+}
+
+ul {
+  text-align: center;
+  width: 200px;
+  color: white;
+  list-style-type:none;
+  margin: auto;
+  padding: 0px;
+}
+
+#recentSearches {
+  text-align: center;
 }
 
 section {
@@ -40,7 +71,6 @@ section {
  align-items: center
 
 }
-
 
 .ui-input-search {
   max-width: 500px;
@@ -61,6 +91,7 @@ section {
   color: white;
   -webkit-box-shadow: 0px 0px 0px;
 }
+
 
 
 #map {

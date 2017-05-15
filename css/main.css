@@ -56,6 +56,10 @@ form {
     color: white;
 }
 
+#weather_div {
+  font-size: 26px;
+  height: 100px;
+}
 input {
     width: 50%;
 }
