@@ -16,24 +16,21 @@
 	<body>
     <!-- This is the first page -->
     <section id="firstPage" data-role="page">
-        <!-- <div data-role="header">
-            <h1>Home Page</h1>
-						<a href="#secondPage" data-icon="contact">Contact Us</a>
-        </div> -->
 				<div data-role="header">
 					<h1>Home</h1>
 					<a id="contact" href="#secondPage" data-icon="mail" class="ui-btn-right">Contact</a>
 				</div>
         <div class="ui-content" role="main">
 
-			<form id = "search" action="#" onsubmit="return false;">
-				<input id="zip_input" type="tel"></input>
-				<button id="btn" onclick="search()" >Search</button>
-			</form>
-
-				<div id="map" ></div>
+					<form id = "search" action="#" onsubmit="return false;">
+						<input id="zip_input" type="tel"></input>
+						<button id="btn" onclick="search()" >Search</button>
+					</form>
+					<!-- Map and weather show here -->
+					<div id="map" ></div>
+					<!-- Show weather details here -->
+					<div style="height:50px;text-align:center;"><b><p style="color:white" id="weather_div"></p></b></div>
         </div>
-				<div style="height:50px;text-align:center;"><b><p style="color:white" id="weather_div"></p></b></div>
 				<div  class="footer" data-role="footer" >
 				</div>
     </section>
@@ -44,20 +41,26 @@
 				<h1>Contact Us</h1>
 				<a id="contact" href="#firstPage" data-icon="search" class="ui-btn-right">Search Weather</a>
 			</div>
-			<div class="ui-content" role="main">
+			<div class="ui-content" id="secondContent" role="main">
+				<div id="message" style="display:None"><h1 style="color:white">Thank you for your feedback!</h1></div>
+				<form class="simple-form" name="contactUsForm" id="contactUsForm"  onsubmit="validateContactForm(); return false;">
+						<label for="Name">Name:</label>
+						<input type="text" name="name" placeholder="  Ex. John Smith" id="name" />
+						<br/>
+						<label  for="email">Email Address:</label>
+						<input type-"email" name="email" id="email"  placeholder="john@smith.com"/>
+						<br/>
+					<label for="Comments">Comments or Feedback:</label>
+					<input type="textarea" name="Comments" id="Comments" placeholder="Enter your comments here"/>
+					<br/>
+					<div id="contactError" style="display: none"><h2 style="color:red">Please enter a valid email</h2></div>
+					<button type="submit" id="submitButton" class="ui-shadow ui-btn">Submit</button>
+				</form>
 			</div>
 			<div  class="footer" data-role="footer">
 			</div>
     </section>
 		<!-- This is the third page -->
-		<section id="thirdPage" data-role="page" >
-			<div data-role="header">
-					<h1>Page Three</h1>
-			</div>
-			<div class="ui-content" role="main">
-			</div>
-			<div  class="footer" data-role="footer">
-			</div>
 			<script>
 				function initMap(){
 					console.log("map looks good");
@@ -65,77 +68,5 @@
 			</script>
 	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlXmT_QhVJ9uaXhekOtOTb5zSABTMDW5k&callback=initMap"
 	    async defer></script>
-			<!-- <div data-role="header">
-				<h1>Contact</h1>
-			</div>
-			<div class="ui-content" role="main">
-				<h1>Submit an Inquiry</h1>
-				<a href="#popupInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="Learn more">Learn more</a></p>
-				<div data-role="popup" id="popupInfo" class="ui-content" data-theme="a" style="max-width:350px;">
-				  <p>As part of ITLP's continued commitment to knowledge, please feel free to submit standard questions and general inquiries through this inquiry form.</p>
-				</div>
-				<form class="simple-form bordered-element" name="contactUsForm" id="contactUsForm" method="POST" onsubmit="validateContactForm()">
-					<div class="hidefirst" id="validateMsg">
-					</div>
-						<label for="Name">Name:</label>
-						<input type="text" name="name" placeholder="  Ex. John Smith" id="name" />
-					<br/>
-
-					<label for="bestContactMethod">Best Way to Reach You:</label>
-						<select name="contactMethod" id="bestContactMethod">
-						<option disabled selected> -- select an option -- </option>
-						<option value="workPhone" class="ui-icon-plus">Work Phone</option>
-						<option value="cellPhone">Cell Phone</option>
-						<option value="email">Email</option>
-						<option value="im">Instant Messenger</option>
-					</select>
-					<br/>
-
-					<div class="hidefirst" id="workPhoneDiv">
-						<label  for="workPhoneNumber">Work Phone:</label>
-						<input type="tel" name="workPhoneNumber" id="workPhoneNumber" type="tel" />
-						<br/>
-					</div>
-
-					<div class="hidefirst" id="cellPhoneDiv">
-						<label  for="cellPhoneNumber">Cell Phone:</label>
-						<input type="tel" name="cellPhoneNumber" id="cellPhoneNumber"  />
-						<br/>
-					</div>
-
-					<div class="hidefirst" id="emailDiv">
-						<label  for="email">Email Address:</label>
-						<input type-"email" name="email" id="email"  placeholder="john@smith.com"/>
-						<br/>
-					</div>
-
-					<div class="hidefirst" id="imDiv">
-						<label  for="im">Instant Messenger:</label>
-						<input type="text" name="im" id="im" />
-						<br/>
-					</div>
-
-					<label for="contactTime">Best Time to Reach You:</label>
-					<select name="contactTime" id="contacttime">
-						<option Evening>Any Time</option>
-						<option>Morning</option>
-						<option>Afternoon</option>
-						<option>Evening</option>
-					</select>
-					<br/>
-					<label for="usbased">Located in US?</label>
-					<input style="display:none"type="checkbox" name="usbased" id="usbased" checked="true" />
-					<br/>
-					<label for="Comments">Comments and Questions:</label>
-					<input type="textarea" name="Comments" id="Comments" />
-					<br/>
-					<button type="submit" id="submitButton" class="ui-shadow ui-btn ui-corner-all">Submit</button>
-				</form>
-				<p><a href="#firstPage">DTLP Program</a></p>
-				<p><a href="#secondPage">About GE</a></p>
-			</div>
-			<div data-role="footer">
-					<h2>&copy; 2015 ABC LLC </h2>
-			</div> -->
 </body>
 </html>
