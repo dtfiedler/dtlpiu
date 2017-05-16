@@ -9,9 +9,8 @@ body {
   font-family: verdana, Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: white;
+  -webkit-overflow-scrolling: touch;
 }
-
-
 
 .footer {
   position: absolute;
@@ -27,7 +26,7 @@ body {
 .center {
   text-align: center;
   margin: auto;
-  width: 50%;
+  width: 75% !important;
 }
 
 .recents {
@@ -46,13 +45,25 @@ body {
     border: 2px solid red  !important;
 }
 
+h2  {
+  color: white;
+}
+
+h1 {
+  color: white;
+}
+
 ul {
   text-align: center;
-  width: 200px;
+  width: 100%;
   color: white;
   list-style-type:none;
   margin: auto;
   padding: 0px;
+}
+
+#search {
+  margin-top: 20%;
 }
 
 #recentSearches {
@@ -199,15 +210,11 @@ a {
     text-align: center;
     display: inline-block;
     vertical-align: baseline;
-	   padding: 5px;
-}
-
-#contactUsForm  {
-  width: 500px;
+	  padding: 5px;
 }
 
 #Comments{
-	width: 400px;
+	width: 100%;
 	height: 100px;
 	display: block;
   margin: auto;
@@ -261,5 +268,9 @@ label {
     height: 600px;
     width: 60%;
     margin: auto;
+  }
+
+  #contactUsForm {
+    width: 50% !important;
   }
 }

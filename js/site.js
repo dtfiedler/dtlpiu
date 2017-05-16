@@ -10,13 +10,18 @@ $(document).ready(function() {
 	getRecentSearches();
 });
 
+function initMap(){
+	console.log("map looks good");
+}
+
 var getRecentSearches = function (){
 
 	//get recent searches from local session storage per browsing session
-			if(sessionStorage.recentSearches){
+	if (typeof(Storage) !== "undefined"){
+			if(localStorage.recentSearches){
 					$($('#recentSearches')).empty();
-					console.log(sessionStorage.recentSearches);
-					var recents = JSON.parse(sessionStorage.recentSearches);
+					console.log(localStorage.recentSearches);
+					var recents = JSON.parse(localStorage.recentSearches);
 					console.log(recents);
 					var list = $("#recentSearches").append('<ul></ul>').find('ul');
 					var count = 0;
@@ -34,6 +39,7 @@ var getRecentSearches = function (){
 			} else {
 				console.log("no recent searches");
 			}
+		}
 }
 
 var recentClicked = function(d){
@@ -55,7 +61,7 @@ var centerMap = function (thislat , thislng) {
 var getGeoCoding = function () {
 	var zip = document.getElementById('zip_input').value;
 	console.log("zip is --> " + zip);
-	$('.ui-input-search').css('margin-top',"10px");
+	$('#search').css('margin-top',"15px");
 	$.ajax({
            type: 'GET',
 					 crossOrigin: true,
@@ -78,21 +84,22 @@ var search = function () {
 		$("#error").remove();
 		var searchValue = $('#zip_input').val();
 
-		//grab recent searches and add to it
-		if (sessionStorage.recentSearches){
-			var recents = JSON.parse(sessionStorage.recentSearches);
-			//previous searches found, update array if its not arleady in there
-			console.log("adding to recent searches ", searchValue);
-			recents.push(searchValue);
-			sessionStorage.recentSearches = JSON.stringify(recents);
+		if (typeof(Storage) !== "undefined"){
+			//grab recent searches and add to it
+			if (localStorage.recentSearches){
+				var recents = JSON.parse(localStorage.recentSearches);
+				//previous searches found, update array if its not arleady in there
+				console.log("adding to recent searches ", searchValue);
+				recents.push(searchValue);
+				localStorage.recentSearches = JSON.stringify(recents);
 
-		} else {
-			//no previous recent searches, create array and store
-			var recents = Array();
-			recents.push(searchValue);
-			sessionStorage.recentSearches = JSON.stringify(recents);
+			} else {
+				//no previous recent searches, create array and store
+				var recents = Array();
+				recents.push(searchValue);
+				localStorage.recentSearches = JSON.stringify(recents);
+			}
 		}
-
 		//update html
 		getRecentSearches();
 	} else {
